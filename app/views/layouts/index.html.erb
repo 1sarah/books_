@@ -1,0 +1,16 @@
+<h1>Reading list: <%= @reading_list.name %></h1>
+
+<%= form_for @reading_list, url: reading_list_path(@reading_list), method: :patch do |f| %>
+  <%= f.label :name, 'Name:' %>
+  <%= f.text_field :name %>
+  <%= f.submit 'Save' %>
+<% end %>
+
+<ul>
+  <% @books.each do |book| %>
+    <li>
+      <%= image_tag book.thumbnail_url %>
+      <%= book.title %> by <%= book.author %>
+    </li>
+  <% end %>
+</ul>
